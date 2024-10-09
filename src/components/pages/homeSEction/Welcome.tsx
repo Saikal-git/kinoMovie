@@ -4,12 +4,15 @@ import scss from "./Welcome.module.scss";
 import Typed from "typed.js";
 import Image from "next/image";
 import { useGetUpcomingQuery } from "@/redux/api/upcoming";
+import { useRouter } from "next/navigation";
 
 const Welcome = () => {
   const { data } = useGetUpcomingQuery();
   const [backgroundImage, setBackgroundImage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   // console.log("🚀 ~ Welcome ~ backgroundImage:", backgroundImage);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const router = useRouter();
   useEffect(() => {
     const typed = new Typed(".multiple-text", {
       strings: [
@@ -67,13 +70,20 @@ const Welcome = () => {
             <h4>
               Millions of movies, TV shows and people to discover. Explore now.
             </h4>
-            <div className={scss.search_movie}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                router.push(`/search/${searchQuery}`);
+              }}
+              className={scss.search_movie}
+            >
               <input
+                onChange={(e) => setSearchQuery(e.target.value)}
                 type="text"
                 placeholder="Search for a movie or tv show...."
               />
-              <button>Search</button>
-            </div>
+              <button type="submit">Search</button>
+            </form>
           </div>
         </div>
       </div>

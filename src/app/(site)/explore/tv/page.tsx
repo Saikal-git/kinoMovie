@@ -1,5 +1,7 @@
+import TVShows from "@/components/pages/exploreSection/TVShows";
+
 const page = () => {
-  return <div>Tv</div>;
+  return <><TVShows/></>;
 };
 
 export default page;

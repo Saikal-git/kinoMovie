@@ -5,14 +5,22 @@ import "react-circular-progressbar/dist/styles.css";
 import scss from "./Details.module.scss";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
+import { useGetVideosQuery } from "@/redux/api/videos";
 
 const Details = () => {
+  const { videoKey, setVideoKey } = useHeaderStore();
   const { movie_tv, id } = useParams();
   const { data, isLoading, isError } = useGetDetailsQuery({
     movie_tv: String(movie_tv),
     id: String(id),
   });
   console.log("🚀 ~ Details ~ data:", data);
+
+  const {data: videos} = useGetVideosQuery({
+    movie_tv: String(movie_tv),
+    id: String(id),
+  });
 
   if (isLoading) return <div className={scss.loader}>Loading...</div>;
   if (isError) return <div className={scss.error}>Failed to load data.</div>;
@@ -88,7 +96,7 @@ const Details = () => {
                       })}
                     />
                   </div>
-                  <div className={scss.playbtn} onClick={handlePlayClick}>
+                  <div className={scss.playbtn} onClick={() => setVideoKey(videos?.results[0].key!)}>
                     <svg
                       version="1.1"
                       xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +144,7 @@ const Details = () => {
                   </h3>
 
                   <h3>
-                    Release Date:  
+                    Release Date:
                     <p>
                       {data?.release_date
                         ? new Date(data.release_date).toLocaleDateString(

@@ -7,27 +7,62 @@
     }
 
     .keenSlider {
-      .videos {
+      display: flex;
+      gap: 30px;
+      .videoItem {
+        position: relative;
         display: flex;
-        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 10px;
+        width: 250px;
 
-        .videoItem {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          margin: 0 10px;
+        img {
           width: 100%;
-
-          iframe {
-            width: 100%;
-            aspect-ratio: 16 / 9; // Пропорции для видео
-            display: block;
-            border-radius: 12px;
-            transition: all 0.7s ease-in-out;
-            object-fit: contain; // Гарантия, что содержимое будет полностью видно
+          height: auto;
+        }
+        .span {
+          height: 140px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          &:hover {
+            background: rgba(0, 0, 0, 0.451);
+            transition: 0.4s;
+            span {
+              color: #da2f68;
+              transition: 0.4s;
+            }
           }
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+          }
+        }
+      }
+    }
+    .modalVideo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.54);
+      backdrop-filter: blur(4px);
+      .videoPlayer {
+        width: clamp(370px, 65vw, 700px);
+        height: clamp(220px, 48vw, 400px);
+        iframe {
+          border-radius: 10px;
         }
       }
     }

@@ -1,5 +1,11 @@
+import Movie from "@/components/pages/exploreSection/Movie";
+
 const page = () => {
-  return <div>Movie</div>;
+  return (
+    <>
+      <Movie />
+    </>
+  );
 };
 
 export default page;

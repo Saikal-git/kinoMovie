@@ -4,6 +4,7 @@ import Details from "./detailSection/Details";
 import Actors from "./detailSection/Actors";
 import Recommendation from "./detailSection/Recommendation";
 import Videos from "./detailSection/Videos";
+import Similar from "./detailSection/Similar";
 
 const DetailPage = () => {
   return (
@@ -12,6 +13,7 @@ const DetailPage = () => {
       <Actors />
       <Videos />
       <Recommendation />
+      <Similar />
     </>
   );
 };

@@ -1,0 +1,32 @@
+.Movie {
+  padding: 90px 0;
+  .content {
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sort {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 7px;
+      .select {
+        width: 100%;
+        color: black;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      //   flex-direction: column;
+      flex-wrap: wrap;
+      .movie {
+        width: clamp(100px, 43vw, 270px);
+        height: auto;
+      }
+    }
+  }
+}

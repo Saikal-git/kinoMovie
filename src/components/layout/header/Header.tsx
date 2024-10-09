@@ -72,7 +72,7 @@ const Header = () => {
                 </ul>
               </nav>
             ) : (
-              <h1>burger</h1>
+              <span>|||</span>
             )}
           </div>
         </div>

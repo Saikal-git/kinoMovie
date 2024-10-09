@@ -15,7 +15,7 @@ const LayoutSite: FC<LayoutProps> = ({ children }) => {
       <div className={scss.LayoutSite}>
         <Header />
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </SessionProvider>
   );

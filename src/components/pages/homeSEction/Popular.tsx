@@ -10,7 +10,6 @@ import { useGetPopularQuery } from "@/redux/api/popular";
 const Popular = () => {
   const [popular, setPopular] = useState("movie");
   const { data, isLoading } = useGetPopularQuery(popular);
-  // console.log("🚀 ~ Popular ~ data:", data);
   const router = useRouter();
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -79,7 +78,7 @@ const Popular = () => {
                           <div className={scss.reting}>
                             <CircularProgressbar
                               value={votePercentage}
-                              text={`${item.vote_average.toFixed(1)}`}
+                              text={`${item.vote_average.toFixed(1) || "N/A"}%`}
                               styles={buildStyles({
                                 rotation: 0,
                                 strokeLinecap: "butt",
@@ -95,14 +94,13 @@ const Popular = () => {
                           <div className={scss.text}>
                             <h2>{item.title || item.name}</h2>
                             <p>
-                              {new Date(item.release_date || item.first_air_date).toLocaleDateString(
-                                "en-US",
-                                {
-                                  year: "numeric",
-                                  month: "short",
-                                  day: "2-digit",
-                                }
-                              )}
+                              {new Date(
+                                item.release_date || item.first_air_date
+                              ).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "short",
+                                day: "2-digit",
+                              })}
                             </p>
                           </div>
                         </div>

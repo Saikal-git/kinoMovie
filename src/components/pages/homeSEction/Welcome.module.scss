@@ -1,9 +1,6 @@
 .Welcome {
-
   position: relative;
   width: 100%;
-  height: 700px;
-  z-index: -1;
   ::after {
     content: "";
     position: absolute;
@@ -12,7 +9,7 @@
     z-index: -1;
     width: 100%;
     height: 300px;
- 
+
     background: linear-gradient(
       180deg,
       rgba(4, 21, 45, 0),
@@ -94,12 +91,12 @@
     height: 100vh;
     z-index: 100;
     h1 {
-      width: 950px;
-      height: 220px;
+      width: 80%;
+      height: clamp(80px, 20vw, 220px);
       color: white;
-      font-size: 90px;
+      font-size: clamp(16px, 5vw, 90px);
       font-weight: 700;
-      line-height: 90px;
+      line-height: clamp(10px, 12vw, 90px);
       letter-spacing: 0%;
       text-align: center;
       color: #fff;
@@ -107,10 +104,11 @@
         0 0 80px #0ff;
     }
     h4 {
+      margin-top: 10px;
       color: rgb(255, 255, 255);
-      font-size: 24px;
+      font-size: clamp(10px, 3vw, 24px);
       font-weight: 500;
-      line-height: 24px;
+      line-height: clamp(8px, 4vw, 24px);
       letter-spacing: 0%;
       text-align: center;
     }
@@ -118,13 +116,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 40px;
+      margin-top: 20px;
       input {
-        padding: 5px 30px;
+        outline: none;
+        padding: 0 20px;
         color: black;
-        font-size: 20px;
-        width: 850px;
-        height: 60px;
+        font-size: clamp(12px, 3vw, 20px);
+        width: clamp(240px, 66vw, 900px);
+        height: clamp(10px, 8vw, 60px);
         left: 0;
         border: none;
         top: 264px;
@@ -132,12 +131,14 @@
         background: rgb(255, 255, 255);
       }
       button {
-        width: 150px;
+        width: clamp(100px, 27vw, 150px);
+        height: clamp(10px, 8vw, 60px);
+
         border: none;
         color: white;
         margin-left: -5px;
-        height: 60px;
-        font-size: 25px;
+        font-size: clamp(12px, 3vw, 20px);
+
         left: 850px;
         top: 265px;
         border-radius: 0px 30px 30px 0px;

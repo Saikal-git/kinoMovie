@@ -1,15 +1,16 @@
-.SearchResult {
+.TVShows {
   padding: 70px 0;
   .content {
-    .explore {
-    }
-    .list {
+    .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px 0;
-      .movie {
+      .TVShows {
         width: 270px;
       }
     }

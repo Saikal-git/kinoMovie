@@ -79,7 +79,7 @@ const Tranding = () => {
                           <div className={scss.reting}>
                             <CircularProgressbar
                               value={votePercentage}
-                              text={`${item.vote_average.toFixed(1)}`}
+                              text={`${item.vote_average.toFixed(1) || "N/A"}%`}
                               styles={buildStyles({
                                 rotation: 0,
                                 strokeLinecap: "butt",

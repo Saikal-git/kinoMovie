@@ -23,7 +23,6 @@ interface IUpcoming {
   total_pages: number;
   total_results: number;
 }
-
 interface ITrending {
   page: number;
   results: Array<{
@@ -93,7 +92,6 @@ interface ITopRated {
   total_pages: number;
   total_results: number;
 }
-
 interface IDetails {
   name: string;
   adult: boolean;
@@ -138,7 +136,6 @@ interface IDetails {
   vote_average: number;
   vote_count: number;
 }
-
 interface ICredits {
   id: number;
   cast: Array<{
@@ -169,11 +166,12 @@ interface ICredits {
     job: string;
   }>;
 }
-
 interface IRecomend {
   page: number;
   results: Array<{
     backdrop_path: string;
+    name: string;
+    first_air_date: string;
     id: number;
     title: string;
     original_title: string;
@@ -192,8 +190,7 @@ interface IRecomend {
   total_pages: number;
   total_results: number;
 }
-
-interface IVideos {
+interface IVideo {
   id: number;
   results: Array<{
     iso_639_1: string;
@@ -208,38 +205,113 @@ interface IVideos {
     id: string;
   }>;
 }
-
-
 interface ISearch {
-  page: number
+  page: number;
   results: Array<{
-    id: number
-    name: string
-    original_name: string
-    media_type: string
-    adult: boolean
-    popularity: number
-    gender: number
-    known_for_department: string
-    profile_path: any
+    id: number;
+    name: string;
+    original_name: string;
+    media_type: string;
+    adult: boolean;
+    popularity: number;
+    gender: number;
+    known_for_department: string;
+    profile_path: any;
     known_for: Array<{
-      backdrop_path?: string
-      id: number
-      title: string
-      original_title: string
-      overview: string
-      poster_path: string
-      media_type: string
-      adult: boolean
-      original_language: string
-      genre_ids: Array<number>
-      popularity: number
-      release_date: string
-      video: boolean
-      vote_average: number
-      vote_count: number
-    }>
-  }>
-  total_pages: number
-  total_results: number
+      backdrop_path?: string;
+      id: number;
+      title: string;
+      original_title: string;
+      overview: string;
+      poster_path: string;
+      media_type: string;
+      adult: boolean;
+      original_language: string;
+      genre_ids: Array<number>;
+      popularity: number;
+      release_date: string;
+      video: boolean;
+      vote_average: number;
+      vote_count: number;
+    }>;
+  }>;
+  total_pages: number;
+  total_results: number;
+}
+interface IMovie {
+  page: number;
+  results: Array<{
+    adult: boolean;
+    backdrop_path: string;
+    genre_ids: Array<number>;
+    id: number;
+    original_language: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    video: boolean;
+    vote_average: number;
+    vote_count: number;
+  }>;
+  total_pages: number;
+  total_results: number;
+}
+interface IMovieList {
+  genres: Array<{
+    id: number;
+    name: string;
+  }>;
+}
+interface ITv {
+  page: number;
+  results: Array<{
+    adult: boolean;
+    backdrop_path: string;
+    genre_ids: Array<number>;
+    id: number;
+    origin_country: Array<string>;
+    original_language: string;
+    original_name: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    first_air_date: string;
+    name: string;
+    vote_average: number;
+    vote_count: number;
+  }>;
+  total_pages: number;
+  total_results: number;
+}
+interface ITvList {
+  genres: Array<{
+    id: number;
+    name: string;
+  }>;
+}
+interface ISimilar {
+  page: number;
+  results: Array<{
+    name: string;
+    first_air_date: string;
+    adult: boolean;
+    backdrop_path?: string;
+    genre_ids: Array<number>;
+    id: number;
+    original_language: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    video: boolean;
+    vote_average: number;
+    vote_count: number;
+  }>;
+  total_pages: number;
+  total_results: number;
 }

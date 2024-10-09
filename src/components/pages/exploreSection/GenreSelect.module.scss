@@ -1,0 +1,18 @@
+.select {
+  color: #000;
+  width: 350px; // Уменьшенная ширина
+
+  [class$="-control"] {
+    background-color: #6a0dad;
+    border-radius: 10px;
+    border-color: #7a3e9d;
+
+    &:hover {
+      border-color: #a200ff;
+    }
+  }
+
+  [class$="-placeholder"] {
+    color: #fff;
+  }
+}
