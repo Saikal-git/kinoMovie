@@ -6,16 +6,18 @@ import { useRouter } from "next/navigation";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useGetPopularQuery } from "@/redux/api/popular";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
 
 const Popular = () => {
   const [popular, setPopular] = useState("movie");
   const { data, isLoading } = useGetPopularQuery(popular);
+  const {isMobile} = useHeaderStore()
   const router = useRouter();
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
     slides: {
-      perView: 5,
+      perView: isMobile ? 2.8 : 5,
       spacing: 15,
     },
   });

@@ -17,11 +17,9 @@
         color: black;
       }
     }
-
     .bottom {
       display: flex;
       justify-content: space-between;
-      //   flex-direction: column;
       flex-wrap: wrap;
       .movie {
         width: clamp(100px, 43vw, 270px);

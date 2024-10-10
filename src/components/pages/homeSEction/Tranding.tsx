@@ -6,16 +6,18 @@ import { useGetTrendingQuery } from "@/redux/api/trending";
 import { useRouter } from "next/navigation";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
 
 const Tranding = () => {
   const [trending, setTrending] = useState("day");
   const { data, isLoading } = useGetTrendingQuery(trending);
+  const {isMobile} = useHeaderStore()
   const router = useRouter();
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
     slides: {
-      perView: 5,
+      perView: isMobile ? 2.8 : 5,
       spacing: 15,
     },
   });

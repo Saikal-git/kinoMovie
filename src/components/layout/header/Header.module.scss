@@ -6,6 +6,7 @@
   backdrop-filter: blur(4px);
   width: 100%;
   padding: 15px 0;
+  
   z-index: 999;
   .content {
     display: flex;
@@ -23,7 +24,7 @@
         // background-clip: text;
         // text-fill-color: transparent;
         font-family: Permanent Marker;
-        font-size: clamp(12px, 3vw, 25px);
+        font-size: clamp(12px, 3vw, 23px);
         font-weight: 400;
         text-align: left;
       }

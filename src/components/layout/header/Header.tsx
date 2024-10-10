@@ -7,11 +7,12 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { LuUserPlus } from "react-icons/lu";
 import { LuUserCheck } from "react-icons/lu";
 import { useEffect, useState } from "react";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
 
 const Header = () => {
   const pathname = usePathname();
   const { data: session } = useSession();
-  const [isMobile, setIsMobile] = useState(true);
+  const {setIsMobile, isMobile} = useHeaderStore()
 
   const changeIsMobile = () => {
     setIsMobile(window.innerWidth <= 768);
@@ -75,6 +76,11 @@ const Header = () => {
               <span>|||</span>
             )}
           </div>
+          {/* <div className={scss.modal}>
+            {
+              links.
+            }
+          </div> */}
         </div>
       </div>
     </header>
