@@ -96,9 +96,15 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
-              <p onClick={() => signOut()}>
-                <i>Log Out</i>
-              </p>
+              {session ? (
+                <p onClick={() => signOut()}>
+                  <i>Log Out</i>
+                </p>
+              ) : (
+                <p onClick={() => signIn("github")}>
+                  <i>Log In</i>
+                </p>
+              )}
             </div>
           )}
         </div>
