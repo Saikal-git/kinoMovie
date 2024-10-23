@@ -15,6 +15,7 @@
     object-position: center;
     img {
       width: 100%;
+      height: clamp(190px, 20vw, 300px);
       border-radius: 7px;
       height: auto;
       object-fit: cover;
@@ -30,14 +31,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: clamp(15px, 10vw, 48px);
+    width: clamp(12px, 8vw, 48px);
     height: auto;
     margin: 4px;
   }
   .title_date {
     width: 95%;
     .title {
-      font-size: clamp(13px, 2vw, 16px);
+      font-size: clamp(8px, 3vw, 16px);
       font-weight: 500;
       line-height: clamp(12px, 2vw, 22px);
       color: rgb(214, 208, 208);
@@ -48,7 +49,7 @@
       text-overflow: ellipsis;
     }
     .date {
-      font-size: clamp(11px, 2vw, 15px);
+      font-size: clamp(8px, 2vw, 15px);
       color: rgb(127, 124, 124);
       display: -webkit-box;
       -webkit-line-clamp: 2;

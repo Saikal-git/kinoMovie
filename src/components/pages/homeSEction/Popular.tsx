@@ -11,7 +11,7 @@ import { useHeaderStore } from "@/stores/useHeaderSrote";
 const Popular = () => {
   const [popular, setPopular] = useState("movie");
   const { data, isLoading } = useGetPopularQuery(popular);
-  const {isMobile} = useHeaderStore()
+  const { isMobile } = useHeaderStore();
   const router = useRouter();
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -94,7 +94,12 @@ const Popular = () => {
                             />
                           </div>
                           <div className={scss.text}>
-                            <h2>{item.title || item.name}</h2>
+                            <h2>
+                              {(item.title || item.name)?.length > 20
+                                ? (item.title || item.name).slice(0, 17) + "..."
+                                : item.title || item.name}
+                            </h2>
+
                             <p>
                               {new Date(
                                 item.release_date || item.first_air_date

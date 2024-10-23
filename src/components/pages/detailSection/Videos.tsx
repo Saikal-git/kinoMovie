@@ -15,12 +15,14 @@ const Videos = () => {
     movie_tv: String(movie_tv),
     id: String(id),
   });
+  const { isMobile } = useHeaderStore();
 
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
+
     slides: {
-      perView: 5,
+      perView: isMobile ? 2.8 : 5,
       spacing: 15,
     },
   });
@@ -54,7 +56,10 @@ const Videos = () => {
                         </div>
                       </div>
 
-                      <h5>{item.name}</h5>
+                      <h5>
+                        {item.name.slice(0, 25)}
+                        {item.name.length > 20 ? "..." : ""}
+                      </h5>
                     </div>
                   )
               )}

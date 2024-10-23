@@ -17,7 +17,7 @@ const Details = () => {
   });
   console.log("🚀 ~ Details ~ data:", data);
 
-  const {data: videos} = useGetVideosQuery({
+  const { data: videos } = useGetVideosQuery({
     movie_tv: String(movie_tv),
     id: String(id),
   });
@@ -61,7 +61,6 @@ const Details = () => {
             <img
               src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
               alt=""
-              width={300}
             />
           </div>
           <div className={scss.right}>
@@ -96,14 +95,17 @@ const Details = () => {
                       })}
                     />
                   </div>
-                  <div className={scss.playbtn} onClick={() => setVideoKey(videos?.results[0].key!)}>
+                  <div
+                    className={scss.playbtn}
+                    onClick={() => setVideoKey(videos?.results[0].key!)}
+                  >
                     <svg
                       version="1.1"
                       xmlns="http://www.w3.org/2000/svg"
                       x="0px"
                       y="0px"
-                      width="70px"
-                      height="70px"
+                      width="65px"
+                      height="65px"
                       viewBox="0 0 213.7 213.7"
                       xmlSpace="preserve"
                     >
@@ -171,11 +173,7 @@ const Details = () => {
                       )}
                     </p>
                   </h3>
-                  {/* <div className="">
-  {data?.cast?.map((member) => (
-    <h1 key={member.id}>{member.name}</h1>
-  ))}
-</div> */}
+  
                 </div>
               </div>
             </div>

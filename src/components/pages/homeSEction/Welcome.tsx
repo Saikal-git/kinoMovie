@@ -10,7 +10,6 @@ const Welcome = () => {
   const { data } = useGetUpcomingQuery();
   const [backgroundImage, setBackgroundImage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  // console.log("🚀 ~ Welcome ~ backgroundImage:", backgroundImage);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const router = useRouter();
   useEffect(() => {

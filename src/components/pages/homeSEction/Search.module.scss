@@ -2,15 +2,19 @@
   padding: 70px 0;
   .content {
     .explore {
+      h2 {
+        font-size: clamp(15px, 5vw, 35px);
+      }
     }
     .list {
       display: flex;
-      align-items: center;
+      align-items: start;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px 0;
       .movie {
-        width: 270px;
+        width: clamp(100px, 43vw, 270px);
+        height: auto;
       }
     }
   }

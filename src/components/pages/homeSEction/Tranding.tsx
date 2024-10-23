@@ -11,7 +11,7 @@ import { useHeaderStore } from "@/stores/useHeaderSrote";
 const Tranding = () => {
   const [trending, setTrending] = useState("day");
   const { data, isLoading } = useGetTrendingQuery(trending);
-  const {isMobile} = useHeaderStore()
+  const { isMobile } = useHeaderStore();
   const router = useRouter();
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -66,7 +66,7 @@ const Tranding = () => {
               ) : (
                 <div ref={ref} className="keen-slider">
                   {data?.results.map((item, index) => {
-                    const votePercentage = item.vote_average * 10; 
+                    const votePercentage = item.vote_average * 10;
 
                     return (
                       <div key={index} className="keen-slider__slide">
@@ -86,7 +86,7 @@ const Tranding = () => {
                                 rotation: 0,
                                 strokeLinecap: "butt",
                                 textSize: "30px",
-                              
+
                                 textColor: "black",
                                 pathColor: getBorderColor(votePercentage),
                                 trailColor: "#d6d6d6",
@@ -95,7 +95,11 @@ const Tranding = () => {
                             />
                           </div>
                           <div className={scss.text}>
-                            <h2>{item.title}</h2>
+                            <h2>
+                              {item.title.length > 20
+                                ? item.title.slice(0, 17) + "..."
+                                : item.title}
+                            </h2>
                             <p>
                               {new Date(item.release_date).toLocaleDateString(
                                 "en-US",

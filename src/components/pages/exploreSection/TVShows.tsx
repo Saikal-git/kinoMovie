@@ -76,7 +76,7 @@ const TVShows: FC = () => {
             {tvData?.results?.map((item) => (
               <div
                 key={item.id}
-                className={scss.TVShows}
+                className={scss.tvShows}
                 onClick={() => router.push(`/tv/${item.id}`)}
               >
                 <ItemCard

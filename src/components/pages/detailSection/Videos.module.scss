@@ -1,38 +1,41 @@
 .Videos {
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   .content {
     h1 {
       margin: 15px 0;
-      // text-align: center;
+      font-size: clamp(10px, 5vw, 25px);
     }
 
     .keenSlider {
       display: flex;
-      gap: 30px;
+      gap: clamp(20px, 7vw, 30px);
       .videoItem {
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: start;
+        justify-content: start;
         gap: 10px;
         margin: 0 10px;
-        width: 250px;
+        width: clamp(80px, 15vw, 250px);
 
         img {
           width: 100%;
           height: auto;
         }
         .span {
-          height: 140px;
+          height: clamp(50px, 7.5vw, 120px);
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
           position: absolute;
+
           &:hover {
             background: rgba(0, 0, 0, 0.451);
+            height: clamp(50px, 7.5vw, 150px);
             transition: 0.4s;
+
             span {
               color: #da2f68;
               transition: 0.4s;
@@ -42,9 +45,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 45px;
+            font-size: clamp(25px, 2.8vw, 45px);
           }
         }
+      }
+      h5 {
+        font-size: clamp(5px, 2vw, 13px);
+        margin-left: 7px;
       }
     }
     .modalVideo {
@@ -59,8 +66,8 @@
       background: rgba(0, 0, 0, 0.54);
       backdrop-filter: blur(4px);
       .videoPlayer {
-        width: clamp(370px, 65vw, 700px);
-        height: clamp(220px, 48vw, 400px);
+        width: clamp(270px, 43vw, 700px);
+        height: clamp(120px, 48vw, 400px);
         iframe {
           border-radius: 10px;
         }

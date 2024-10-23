@@ -12,7 +12,8 @@ import { useHeaderStore } from "@/stores/useHeaderSrote";
 const Header = () => {
   const pathname = usePathname();
   const { data: session } = useSession();
-  const {setIsMobile, isMobile} = useHeaderStore()
+  const { setIsMobile, isMobile } = useHeaderStore();
+  const [modal, setModal] = useState(false);
 
   const changeIsMobile = () => {
     setIsMobile(window.innerWidth <= 768);
@@ -73,14 +74,33 @@ const Header = () => {
                 </ul>
               </nav>
             ) : (
-              <span>|||</span>
+              <span onClick={() => setModal(!modal)}>
+                {!modal ? "|||" : "X"}
+              </span>
             )}
           </div>
-          {/* <div className={scss.modal}>
-            {
-              links.
-            }
-          </div> */}
+
+          {modal && (
+            <div className={scss.modal}>
+              {links.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    className={
+                      pathname === item.href
+                        ? `${scss.link} ${scss.active}`
+                        : `${scss.link}`
+                    }
+                    href={item.href}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+              <p onClick={() => signOut()}>
+                <i>Log Out</i>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </header>

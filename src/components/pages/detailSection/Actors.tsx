@@ -5,6 +5,7 @@ import { useGetCreditsQuery } from "@/redux/api/actors";
 import { useParams } from "next/navigation";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
 
 const Actors: FC = () => {
   const { movie_tv, id } = useParams();
@@ -12,11 +13,14 @@ const Actors: FC = () => {
     movie_tv: String(movie_tv),
     id: String(id),
   });
+  const { isMobile } = useHeaderStore();
+
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
+
     slides: {
-      perView: 5,
+      perView: isMobile ? 2.8 : 5,
       spacing: 15,
     },
   });

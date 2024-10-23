@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import ItemCard from "../homeSEction/ItemCard";
 import { useKeenSlider } from "keen-slider/react";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
 
 const Similar: FC = () => {
   const router = useRouter();
@@ -17,11 +18,13 @@ const Similar: FC = () => {
     movie_tv: String(movie_tv),
     id: String(id),
   });
+  const { isMobile } = useHeaderStore();
+
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
     slides: {
-      perView: 5,
+      perView: isMobile ? 2.8 : 5,
       spacing: 15,
     },
   });
@@ -45,11 +48,11 @@ const Similar: FC = () => {
                       <ItemCard
                         original_title={item.title || item.name}
                         poster_path={item.poster_path}
-                        first_air_date={item.release_date || item.first_air_date}
+                        first_air_date={
+                          item.release_date || item.first_air_date
+                        }
                         release_date={item.release_date}
                         vote_average={item.vote_average}
-
-
                       />
                     </div>
                   </div>

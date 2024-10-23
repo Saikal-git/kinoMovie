@@ -1,12 +1,14 @@
 .Actors {
+  padding-bottom: 30px;
   .content {
-   h1{
-    margin-bottom: 10px;
-   }
+    h1 {
+      margin: 15px 0;
+      font-size: clamp(10px, 5vw, 25px);
+    }
     .keenSlider {
       .cast {
-        width: 200px;
-        height: 200px;
+        width: clamp(80px, 12vw, 200px);
+        height: clamp(80px, 12vw, 200px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -17,6 +19,9 @@
           object-fit: cover;
           object-position: center;
         }
+      }
+      h2 {
+        font-size: clamp(5px, 3vw, 19px);
       }
     }
   }

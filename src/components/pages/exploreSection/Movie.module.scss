@@ -5,25 +5,60 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      h1 {
+        margin-bottom: 10px;
+        font-size: clamp(15px, 5vw, 30px);
+      }
     }
     .sort {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 7px;
+      gap: 10px;
+
       .select {
-        width: 100%;
+        width: clamp(120px, 80%, 500px); // уменьшенная адаптивная ширина
+        height: clamp(25px, 7vw, 60px); // адаптивная высота
         color: black;
+        padding: 8px; // уменьшенный padding для лучшего внешнего вида
+        font-size: clamp(13px, 2.5vw, 16px); // адаптивный размер шрифта
+        border-radius: 5px;
+        background-color: transparent; // убран белый фон
+
+        margin: 5px 0;
+
+        @media (max-width: 600px) {
+          width: 100%; // на маленьких экранах select будет занимать всю ширину
+        }
+
+        // Дополнительные стили для бордеров при hover
+        &:hover {
+          border-color: #888; // более светлый бордер при наведении
+        }
       }
     }
+
     .bottom {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      margin-top: 20px;
       .movie {
         width: clamp(100px, 43vw, 270px);
         height: auto;
+      }
+    }
+
+    // Новый медиа-запрос для адаптации select к колонне
+    @media (max-width: 600px) {
+      .sort {
+        flex-direction: column; // устанавливаем направление на колонку
+        gap: 10px; // добавляем отступ между селектами
+
+        .select {
+          width: 100%; // селекты занимают всю ширину экрана
+        }
       }
     }
   }

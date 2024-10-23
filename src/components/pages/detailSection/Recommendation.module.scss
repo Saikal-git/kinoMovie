@@ -1,10 +1,11 @@
 .Recommendation {
   padding: 50px 0;
   .content {
+    h1 {
+      margin: 10px 0;
+      font-size: clamp(10px, 5vw, 25px);
+    }
     .keenSlider {
-      .recomend {
-        width: 270px;
-      }
     }
   }
 }

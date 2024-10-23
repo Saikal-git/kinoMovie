@@ -9,6 +9,8 @@ const api = index.injectEndpoints({
       }),
     }),
   }),
+  
 });
 
 export const { useGetSearchResultQuery } = api;
+

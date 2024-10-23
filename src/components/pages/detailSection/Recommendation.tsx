@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import ItemCard from "../homeSEction/ItemCard";
 import { useKeenSlider } from "keen-slider/react";
 import { useGetRecomendQuery } from "@/redux/api/recommendations";
+import { useHeaderStore } from "@/stores/useHeaderSrote";
 
 const Recommendation: FC = () => {
   const router = useRouter();
@@ -17,11 +18,13 @@ const Recommendation: FC = () => {
     movie_tv: String(movie_tv),
     id: String(id),
   });
+  const { isMobile } = useHeaderStore();
+
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
     slides: {
-      perView: 5,
+      perView: isMobile ? 2.8 : 5,
       spacing: 15,
     },
   });
